@@ -137,7 +137,7 @@ db.getCollection('students').aggregate([
 ********** Не працюючих батьків влаштувати офіціантами (підказка: гуглимо "arrayFilters")
 
 db.getCollection('students').updateMany(
-    {parents: {$exists: 1},'parents.profession':null},
-    {$set: {'parents.$[element].profession':'waiter'}},
-    {arrayFilters: [{ 'element.profession': null}]}
+    {parents: {$exists: 1},'parents.profession':null}, // є батьки і хочаб 1 не працюючий
+    {$set: {'parents.$[element].profession':'waiter'}}, // добавити в масив професію офіціанта
+    {arrayFilters: [{ 'element.profession': null}]} // якщо елемента масиву не існує
 )
