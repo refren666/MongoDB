@@ -1,6 +1,6 @@
 1) Знайти всіх юзерів в кого вік менше за 20
 
-db.getCollection('users').find({age: {$gt:20}})
+db.getCollection('users').find({age: {$lt:20}})
 
 2) Знайти всіх юзерів в котрих хоча б один з батьків Tamara або Petro
 
