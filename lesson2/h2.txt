@@ -135,3 +135,9 @@ db.getCollection('students').aggregate([
 ])
 
 ********** Не працюючих батьків влаштувати офіціантами (підказка: гуглимо "arrayFilters")
+
+db.getCollection('students').updateMany(
+    {parents: {$exists: 1},'parents.profession':null},
+    {$set: {'parents.$[element].profession':'waiter'}},
+    {arrayFilters: [{ 'element.profession': null}]}
+)
